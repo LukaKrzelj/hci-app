@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getProducts, getProductsCount } from "./_lib/api";
 import type { Product } from "./_lib/api";
 import Pagination from "../_components/pagination";
-import { Image } from "lucide-react";
+import Image from "next/image";
 
 type ProductsPageProps = {
   searchParams: { page: string };
