@@ -3,7 +3,7 @@ import type { Product } from "../_lib/api";
 import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { url } from "inspector";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Bestsellers",
@@ -36,7 +36,7 @@ export default async function Product({ params }: ProductProps) {
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 mb-4">
           Post {id}: {title}
         </h1>
-        <img src={imageUrl} alt={title} />
+        <Image src={imageUrl} alt={title} width={500} height={500} />
         <p>{imageUrl}</p>
       </article>
     </main>

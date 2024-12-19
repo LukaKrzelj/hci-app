@@ -10,8 +10,6 @@ type PagingInfo = {
     imageUrl: string;
   };
   
-  const PAGE_SIZE = Number("6") || 6;
-  
   async function getProductsCount(): Promise<number> {
     // Fetch the total count of products from your API
     const response = await fetch('https://jsonplaceholder.typicode.com/photos/?_limit=');
@@ -23,7 +21,7 @@ type PagingInfo = {
     // Fetch the products from your API with pagination
     const response = await fetch(`https://jsonplaceholder.typicode.com/photos?_start=${_start}&_limit=${_limit}`);
     const data = await response.json();
-    return data.map((item: any) => ({
+    return data.map((item: { albumId: number; id: number; title: string; url: string }) => ({
       albumId: item.albumId,
       id: item.id,
       title: item.title,
